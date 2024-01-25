@@ -1,1 +1,624 @@
+INTRO:- 
+Q1. What is cloud computing?
+-It deliver on demand computing services server ,storage ,database,application, networking tools and its resources over the internet.
+-All are these services present at remote location anywhere and anytime.
+-We take these service via internet.So disadvantage of cc is without internet we can`t able to acces cloud services.
+-When you want to use those services you are going to pay for these services.
+-When you are done using it when you no need for services you are not going to pay anymore.
+-So basically Cloud give you really nice interface you can easily access.]
+-Like tarditional way you need servers ,manpower to handle these serers ,cooling system,all network devices,hardware if your website grows you need more servers. 
+-In CC you no need all those resources only required internet to acess all those cloud services.
+-You Paid fornonly cloud service that we used.
+
+Q2. So why we use regions.
+-to solve latency problem like suppose you are in mumbai region when you search and website and that website hosted in another region like canada. so it takes 
+time to response . But any person in canada region and he serach web within second response it. Bcz region is near.
+-when you hosted any website in near by region. And whenever you search web it response it within sec. Choosing a region close to your users can reduce latency.
+
+Q3. Deployment Model in Cloud ?
+--> Public Cloud:- Available to everyone to store & access data via internet
+    private cloud:- It is not accessible publically 
+                    It is secure than Public bcz all data within pvt cloud are private only authorize people access data.
+                    suppose that any organisation create private cloud and services/data is availbale within an oraganisation so it means data accessible to those peoples who are in oragainisation.
+    Hybrid Cloud :- It is an mixture of Pvt cloud & public cloud
+                    If you want to store data privately or more securable & aceesible to only authorize peoples then use pvt cloud in hybrid
+                    If you want to data are acceesible to publically then store into public cloud.
+    Community Cloud:- It allows service within cloud are accessible to group of organisation
+                      A group of organisation create.
+                      all data/services within cloud are accessible/share to group of organisation.
+
+Q4.Service Model in Cloud ?
+--> IAAS :- Infrastructure as a service (EC2)
+            For running an application we take infra like vm, server, storage, networking tools from cloud
+            
+    PAAS :- plateform as service (LAMBDA)
+            It provides plateform for developers develop deploy manage application
+            We develop/run manage application rather than all services are arrange by cloud service providers.
+            virtualisation, storage, servers, networking arrange by cloud provider
+    SAAS :- software as a service, 
+            It delivers an software application over internet. users access apllication form web browsers
+            We only use application & pay.
+
+Q5. Architecture of Cloud Computing ?
+--> frontend 
+    virtualization
+    backend
+
+Q6. AWS Global Infrastructure Count ?
+--> AWS build infra into 32 Regions around world
+    There are 32 Region of AWS./ it is an collection of AZs.
+    106 Availability zones in 32 region. Each Region has many max 6 or min 3 Az.
+
+Q7. What is service ? & What are resources ?
+--. You know that AWS provide huge amount of services to use end users
+    for storage, virtualmachines, for netwroking, databses
+    to create machines, use storage for that we use an services
+    resources nothing but an entity which are present in service like buckets is reosurces of S3 service
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+IAM:-----
+
+Q1.HOW MANY RESOURCES DO WE HAVE IN IAM.
+ANS- 4  A)user
+        b)groups
+        c)policies
+        d)roles
+Q2.DEPLOYMENT MODEL IN IAM?
+
+Q3.IDENTITIES IN IAM?
+ANS- Who can access resources like an user is an identity.
+
+Q4.WHAT IS AN IAM USER?
+ANS- It is an entity/person created by root user 
+     It is an entity Who can use/interact with aws resources.
+
+Q5.WHAT IS THE IAM GROUP?
+ANS-  IAM group is collection of user.
+      We have to give permission to an 10 user.
+      Its easy to create a group add 10 user and attach permission.
+
+Q6.WHAT IS AN IAM POLICY
+ANS- Policy nothing but bunch of permission.
+     We create cutomize policy for an user requirement.
+     Create policy select effect what action can be allow for resources.
+
+Q7.WHAT IS IAM ROLE
+ANS-  It is more secure way to access any resource in ec2 Without sharing any credentials.
+      for that create role and select service where we attach role and add permision like which resource
+      you need on ec2 and create role.
+
+Q8.Where do we attach identity based policy?
+ANS- We attach identity based policy to an user, groups and role.
+
+Q9.Where do we attach resource based policy?
+ANS- WE attach resource based to an resources.
+
+Q10.can we able to create policy via json code?
+ANS- Yes
+
+Q11.If one user has created by default, which permission has been assigned to that user?
+- When user is create no permission user does not have any permission.
+
+Q12.What is dominar policy
+ANS- powerfull permission given to an user
+
+Q13.What is ARN?What are the field of arn?
+ANS- ARN is an unique identity gives to any user or resources
+        Fields- arn
+                partition
+                service
+                region
+                accountid
+                resources id
+
+Q14.How many types of ARN partition?
+ANS- 3 partition : a]standard partition 
+                   b] us government cloud.
+                   c] aws china
+
+Q15.What are the tags?
+ANS- Unique identity assign to an user or resources
+     It consist of key and value.
+     Key is an identifier and values provides information.
+     It will helpful to identity which user are from which environment like tester and developer.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+S3:- 
+
+Q16. Difference between Block storage & Object Storage ?
+--> BLOCK STORAGE:- When we save any data into block storage it will divides data and stored into evenly size of blocks
+                    It is used in form of hardrive HDD, SDD.
+                    It would not contain metadata.
+   Object storage:- It is an object level storage.
+                    When store any object it store as it is.It will not divide into blocks.
+                    We cant install OS.
+                     
+
+Q17. Difference between static website & dynamic website ?
+--> Static Website:- Static website has no database. and no server side code execution
+                     It Just like advertisement/portfolio We cant give any details.
+    Dynamic Website:- Dynamic web has dynamic content which will change on the user request.
+                      It has database 
+
+Q18. What are the naming rules ?
+--> for best practices don’t gives bucket name as ip address and domain name
+    name should be lower cases and buck name must be globally unique.
+    We not gives an special char to starting of the name we able to give middle of name.
+
+Q19. What is the major resource of S3 Bucket ?
+--> Bucket
+
+Q20. why do we need to host static websites instead of dynamic websites ?
+--> bcz Static Website consist of HTML, CSS dont need any database.
+    So its easy do 
+
+Q21. What is versioning & Why do we need versioning ?
+--> It will protect update, existing objects and accidental delete objexts.
+    When we upload upadted any object with same name it will create versions of that object.
+
+Q22. What are the objects and types of objects that we are uploading into the S3 Bucket ?
+--> Object nothing but an data we upload in bucket
+    Objects like document, images, etc but we cant install OS.
+
+Q23. Why is MFA Delete important in S3 Bucket object level ?
+--> When any user upload or download any object WIthou MFA CODE he is not able to do any action.
+
+Q24. What is S3 Multipart upload ?
+--> It allows users to upload large object in part, which are then combined into a single object.
+   It is useful for files when file larger than 100 MB.
+
+Q25. What are the storage classes in Amazon S3 ?   —------------------- IMP
+--> Standard class
+    Standard IA
+    IA ONE ZONE
+    INTELLIGENT TIERING
+    GLACIER INSTANT RETRIEVAL
+    GLACIER FLEXIBLE RETRIVAL
+    GLACIER DEEP ARCHIEVE
+
+Q26. What is ACL ?
+--> To change object ownership you have to enable ACL.
+    When we need to make object publically accesible
+    For that ACL enable and make object publically accesible using ACL.
+
+Q27. Why do we need ACL ?
+--> To change object ownership you have to enable ACL.
+    After an enbled When any user upload object in bucket he is the owner of object rather tham bucket owner.
+
+Q28. What is a Life cycle policy ? Why do we need to use the life cycle rule ?
+--> How we can manage storage for cost saving for that create lifecycle rule
+    We give condition after that when condition satisfy data inside bucket are move to
+    one storage class to another class what we specify in rule.
+
+Q29. How can we make our bucket public ?
+--> Unblock public access
+
+Q30. How can we give public access to our bucket ?
+--> bucket --> permission --> unblock public access.
+
+Q31. Aws pricing factor of the S3 Service.
+--> Pricing depend on data transfer, how many storage we use, and which feature you enabled 
+
+Q32. How can we make our object public ?
+--> For that make our bucket public
+    After enabled ACL and make object public using ACL
+
+Q33. How can we configure the static website logs in s3 ?
+--> Create cloud trails and mention bucket where you want to store logs.
+    
+Q34. What is CORS ?
+
+Q35. What is S3 Inventory ?
+
+Q36. What does it mean by Requester pays ?
+--> When we enable requestor pay after that any user want to access any object he is responsibkle to
+    pay for data transfers
+
+Q37. What is the secondary word to Transfer acceleration ?Why do we need to use this transfer acceleration ?
+--> 2nd word is edge location/CDN
+    When we need to increase spped of upload/downloading/data transfer of any object from long distance/another region buckets
+    For that we enabled Edge location.
+    After that our request pass from nearest edge location rather than the main aws region of bucket.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+CLOUTRAIL:- 
+Q38. What is a cloud trail ?
+--> It records all api records & events in the form of logs which happens/occurs in services just like store an history.
+    For monitoring and troubleshooting it help for enable Cloudtrail to a specific services
+    We understand that which user what action takes on resources.
+    It records all events like unusual activity perform by user on resources
+
+Q39. Why do we use trails, what is the exact purpose of enabling the trail in cloud production accounts ?
+--> For monitoring and troubleshooting we use cloudtrail.
+    we understand/knows that users what acivity/axction performs on aws resources
+    Suppose any unsual activity perform on resources like any user delete bucket he says no. 
+    how we can identify it with help of cloudtrail we idetify that.
+
+Q40. Explain how we can create a trail in aws cloud trail ?
+--> Create trail and mention s3 bucket for storing logs
+    select event type which event you wnat to record management, insights, data events
+    create 
+
+Q41. How can we enable logging for S3 bucket using cloud trails ?
+--> For that go to S3 console
+    create cloud trail mention s3 buck where you want to store logs
+    Select events which event you want to record 
+    create 
+
+Q42. How do you get the list of all created trailers in your production account ?
+--> go to cloudtrail service
+    on the dashboard click on trails
+
+Q43. Can we create a trail for a multi region, if yes then how can we configure it ?
+--> when you create trail it automatically created for multi regions 
+
+Q44. How can we disable the logging for certain events, services in cloud trail, If yes so explain how ?
+--> click on cloutrail
+    edit events if you want to disable for managenmets events
+    click on managements events after deselect and saved changes
+    
+Q45. Real time use case of cloud trail ?
+--> suppose you want to track all action happens with an your S3 buckets
+    with help of cloud trail you monitor/troubleshoot all actions happens with an S3 bucket.
+
+Q46. What is cloud trail event history ?
+--> Events like create ec2, upload object in bucket
+    user, time of action performed, Ip address.
+
+Q47. What is log file integrity validation in cloud trail ?
+--> Cloudtrail will deliveres digest file in s3 bucket mention in trail.
+    digest file is an proof of logs will not change and delete manually.
+    digrest file contains hash values of log deliveres.
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ 
+  
+SNS:-   
+Q48. What is SNS ?
+--> It is an simple notification service 
+
+Q49. Why do we use SNS ?
+--> suppose if you want to track all action happen with on your resources like buckets, instances for that we use sns 
+    suppose we configure sns for s3
+    whenever users perform actions on s3 buckets
+    you get notification on your mention protocol 
+
+Q50. What is an Amazon SNS function, and how we can configure it.
+--> function of sns is when any action perform on service like user upload object in s3 you get notification on your protocol which you are mention in sns topic.
+
+Q51. Difference between Amazon SNS & Amazon SQS.
+--> 
+  
+Q52. What are the different delivery formats and transports in AWS SNS ?
+--> Aamazon SQS, Lambda, email, http, https, sms
+
+Q53. What is the difference between SNS FIFO & Standard while creating the SNS topic.
+--> SNS provides 2 types of message delivery
+    fifo:- in FIFO when you subscribe SNS fifo topic in subscribers you have only 1 protocol that is SQS 
+    Standard:- here you have mutiple options of protocols like SQS, Lambda, email, http, https, sms
+
+Q54. On which services are configured with the AWS SNS ?
+--> for s3 service I enabled sns.
+    after that whatever users were performing action on bucket, I get notification on given SNS topic protcol (gmail).
+
+Q55. What is 10DLC in AWS ?
+--> 
+
+Q56. What are FIFO topics on SNS ?
+--> When you create SNS FIFO TOPIC & When you subscribes you have only one Protocol SQS.
+
+Q57. What is SNS Mobile Push ?
+-->  Mobile Push is a feature of AWS SNS that enables you to send push notifications to mobile devices (apple ios, windows phone)
+
+Q58. On which delivery method do we use and configure the subscription ?
+--> I use gmail protocol
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+AWS EC2:- 
+
+Q59.What is EC2, Why do we need EC2 service in cloud computing ?
+-->With help of EC2 we cretae an virtual machine called as instances in EC2.
+   Bcz it provide scalability, fault tolerance, high availability with help of different resources.
+   We have only pay for what we use.
+   Anytime we create instances when we no need after that simply delete that m/c.
+
+Q60.Features of Amazon EC2 ?
+-->it provide different types of machine we create as own requirement on the basis work loads.
+   On our demand we scale up & scale down on our demand.
+   We also choose different price model as our requirement.
+   
+Q61.What is Hypervisor ? and its types ?
+--> It is an software that creates and runs virtual machines on hardware
+    Types Bare metal and Hosted
+    Bare metal means these hypervisors run directly on hardware without need any OS.
+    we use Xzen in AWS,
+    Hosted means it runs on OS. SO it will takes hardware resources from host OS. EX:- Virtual Box.
+                      
+Q62.Where we use hypervisor
+--> on hardware to run machine.
+
+Q63.Steps to create an EC2 instance.
+--> Give name of instance 
+    Choose AMI as our requirement AMI decide os like Redhat,ubuntu,linux
+    Choose instance types like how many cpu, ram we required.
+    Generate key pair either you have already a key pair choose key pairs
+    choose Network group and set inbound and outbound rules.
+    Specify how many ram required
+
+Q64.EC2 Instance state ?
+--> PENDING
+    RUNNING
+    STOPPING
+    STOP
+    SHUTTING-DOWN
+    TERMINATED
+
+Q65.How many types of EC2 Instance-State codes ?
+--> Pending Code: 0
+   Running Code: 16
+   Shutting Down Code:32
+   Terminated Code: 48
+   Stopping Code: 64
+   Stopped Code: 80
+
+Q66.What is the meaning of server hibernating mode ?
+--> When we hibernate our instance after outinstance go to sleep mode.
+
+Q67.What is KMS ?
+--> Basically is an service use for encryption of columes.
+    KMS for key with help of keys Volumes are encrypted.
+    
+Q68.AWS Amazon EC2 Instance types ?
+--> General purpose
+    Compute optimized
+    Memory optimized
+    Storage optimized
+    Accelerated computing.
+
+Q69.How many types of status checks happen in aws ?
+--> 2/2 - ALL ok
+    0/1-  Software issue
+    0/2-  hardware issue
+
+Q70.When we see the global view option in ec2 service ?
+--> It shows All regions of aws and how many resources you are create in EC2.
+
+Q71.When we logged into the cloud account by default why do we always jump into the north virginia region, why it’s most popular ?
+--> Bcz it is an 1st region launched by AWS 
+    When any new service oer resources are comes in AWS so 1st it launch in VIRGINIAN region,
+    High availability of this region bcz It has 6 AZs.
+
+Q72.What are EBS Volumes and its types ?
+--> EBS is an network level storage and it is persistent.
+    And data are stored in the form of blocks and os runs on these root volumes.
+    General purpose SDD 
+    Provisioned IOPSSDD
+    Throughput HDD 
+
+Q73.Purpose of Using EBS volumes ?
+--> It is an network level storage 
+    Persistent 
+    As our own requirement we increase and decrease size.
+    It is easy to take backup (snapshot)
+    It easy to detach and attach to another instance no chances to data lost.
+    
+Q74.How many types of purchasing options do we have in aws ec2 ?
+-->  On demand- 
+     Dedicated host
+     Dedicated instance 
+     Spot instance
+     Reserved instance
+
+Q75.Difference between AWS AMI Image & AWS Template ?
+--> We create Template for autoscaling group it means when instance are created same replica \
+    created which we are configured in template.    
+    AWS AMI image means backup of software or volume
+    suppose that you have instamce all webserver application are configured and you need another instance 
+    with same configuration so why we need to waste time for creating another instance
+    Create Image of existing instance after create instamce from AMI IMAGE. 
+
+Q76.What is NIC & it’s types ?
+--> 
+
+Q77.What is elastic IP ? & WHY were we used ?
+--> Elastic IP means static like it will not change over time when we stopped an EC2 machine
+    bcz it will change when we stopped an ec2 m/c.
+
+Q78.What is the snapshot of why we use it ?
+--> snapshot is an backup and point-in-copy of ebs volumes
+    for backup purpose we use snapshot.
+
+Q79.How can we save money in snapshot costing, if an automated snapshot has been created ?
+--> Regularly review and delete snapshots that are no longer needed
+    for save cost aws creates incremental snapshots    
+
+Q80.What is the lifecycle manager in snapshot ?
+--> suppose we have to take backup/snapshot of volumes daily,monthly,weekly
+    For that create lifecycle manager policy defines time and frequency on the basis
+    of policy it takes snapshot at given time.
+
+Q81.How does the Amazon lifecycle manager work ?
+--> we create policy and add volums with help of tags & defines frequency and time
+    on the basis of frquency and given time it takes snapshot
+    suppose we give frquency dailt specify time 9:00AM every day at 9:00AM snapshot will be created.
+
+Q82.Difference between Security Group & NACL ?
+--> SG work on instance level where nacl are stateless
+    NACL work on subnet and VPC level where dg are stateful.
+
+Q83.What are NACL & Its types ?
+--> NACL are apply on subnet level so by default rules is apply to all instances which are in subnet.
+    TYPES:- Default NACL & Custom NACL.
+    When we create a New VPC so default NACL are created it allows for all inbound outbounf traffic.
+    Where custom nacl are created by user as our requirement we also for inbound and outbound rules.
+
+Q84.How many IP Addresses can we attach to the instances ?
+--> Public and private.
+
+Q85.How many types of volume states do we have ?
+--> Creating
+    available
+    In use
+    Deleting 
+    Deleted.
+
+Q86.What is a key pair, and its types ?
+--> Key pair is an secure login information for of your instances
+    with help of key pair we login an remote m/c on our local machine
+    Public key and pvt key
+    Public is stored to AWS and pvt key files is store on our local m/c.
+
+Q87.What is load balancer and its types ?
+--> load balancer distributes incoming web application traffic across multiple targets/instances in multiple AZ.
+    Types :- classical, application, network and gateway.
+
+Q88. How does the load balancer work in the backend? Can you explain it ?
+--> Whenever traffic comes on load balancer listeners check for connection request from clients with help of ports what you configured
+    it will forward tarffic to registered targets using round robin algorithm.
+    LB continously monitor instance health using ping if any instance is unhealthhy it will forward traffic to only healthy instances.
+    
+
+Q89. Features of Load Balancers ?
+--> Provide fault taulerance and high availability
+    ALB allows you to route traffic based on the URL path we mention path in listeners rule.
+    In nlb maximum amount pass in minimum time
+
+Q90. What is ASG ? & Its types ?
+--> Basically ASG will decide desire, maximum, minimum size of autoscaling group.
+    We wiil define capacity of instances as per our requirement we also give target values of cpu
+    utilization. On the basis of that it will scale up and scale down targets when traffic increases.
+
+Q91. What is a Health Check ?
+--> It check healths of instance where an instance face any problem like software or hardware problem.
+
+Q92. What is the threshold ?
+--> it means specific value limit. Whenever it reaches value limit after action is performed.
+
+Q93.What is the group of LB ?
+--> It is an Target Groups
+    Target Group nothing but an group of targets (lambda, instance, ALB)
+    Target Groups are used with Application Load Balancers and Network Load Balancers.
+
+Q94.Why do we prefer ALB over ALB ?
+-->   
+
+Q95.Difference between Web server & Application server ?
+--> webserver:- 
+    responsibility of a web server is to handle HTTP requests.
+    webserver is serves only static content to end users\
+    no need database connectivity bcz severs static content.
+    example: apache http, nginx , A simple portfolio website with fixed content and no user interaction
+Application server:- 
+    responsibility of an application server is to execute application code and generate dynamic content based on client requests.
+    The application server executes server-side code, processes dynamic requests, interacts with databases, and generates content based on user input.
+    The application server communicates with the database to fetch or update information as needed.
+    example :- apache tomcat, An e-commerce website with product listings, user accounts, and shopping cart functionality database to store product and user data.
+  
+Q96.What is the target group ?
+--> When we use ALB at that time we have to create Target group
+    We add targets (instances, lambda, alb) in target group, and add Target group ALB.
+    
+Q97.What is the desired capacity in ASG ?
+--> It means minumim no of running servers when we launch ASG after it creates instances
+    Suppose we have to give Desired capacity 2 so in every situation minimum 3 instances runs load will increase or decrease no matters.
+
+Q98.How many types of the Scaling option ?
+--> Vertical scaling
+    Horizontal Scaling.
+
+Q99.Scaling plans ?
+--> 1] dynamic scaling - a]target tracking policy
+                         b]simple scali9ng
+                         c] step scaling
+    2]schedule scalimg
+    3]predictive scaling
+
+Q100.Types Auto scaling
+--> Dynamic scaling
+    Predictive scaling 
+    Schedule Scaling 
+
+Q101.Difference between vertical scaling and horizontal scaling ?
+--> Vertical scaling:- we scale up manually existing instance rather than create replica of existing instance.
+    Horizontal Scaling:- It means whenever traffic increses it will automatically scale up same replica of instance what will you configure in template
+
+Q102.Difference between AMI & Snapshot ?
+--> AMI consist of application servers and os which are need to create instances
+    Snapshot is backup of only volumes.
+
+Q103.What is difference between EBS/EFS/S3
+--> EBS :- Ebs is an block level storage & block storage divide data into blocks
+           OS are install in EBS & It is used in form of HDD and SSD.
+           it is AZ specific
+    EFS:- It is mount on instance and it can mount on more thatn 1 instance
+          using efs we share files to all mounted instance
+          it is an region specific
+    S3:- It is an object level storage when we storage any object it will store as it is not divides into blocks
+        We store meta data.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+VPC
+
+Q104. What is VPC ?
+--> Virtual Private Natework It means we create our own network which is isolated from other networks
+    Only authorize peoples can access our network resources.
+
+Q105. What are the Subnets when working with VPC ?
+--> Subnets decide how many resources we are creates in VPC
+    Subnets are a way to divide the IP address range of your VPC into smaller.
+    Subnets are created in a specific availability zone
+
+Q106. What is NAT Device ?
+-->   Network addressing translate
+     With help of NAT device instances within pvt subnets access services out side the vpc & get internet connectivity
+
+Q107. What is the difference between stateful & stateless filtering ?
+--> stateful means whenever you add any rule in inbound  are automatically added in outbound. 
+    stateless means you add any rule in inbound after you also add in outbound not automatically added like stateful
+
+Q108. What are the advantages of using default VPC ?
+--> All are configured Route TABLES, Subnets, NACL,Route Tables.
+
+Q109. What is the internet gateway in VPC ?
+--> With help of IG reources within vpc are connect to Internet
+    For that associate IG to route table means all traffic are redirect/going through IG.
+
+Q110. What is Network ACL in VPC ?
+--> NACl filter incoming traffic on your VPC/subnets
+    It act as firewall controls incoming traffic on subnet level.
+
+Q111. What is the Security Group in VPC ?
+--> SG act as firewall on resources(EC2) within vpc
+
+Q112. What is an Elastic IP Address in VPC, and why do we need to use, realtime example ?
+--> It is an static IP doest no change over time.
+    We attch Elastic IP to NAT GATEWAY.
+
+Q113. Can we attach one Production Elastic IP to the new Prod server ?
+--> 
+
+Q114. How does ELB Affect a VPC ?
+--> Improved avaibility and fault tolerance means ALB monitor instances which are healthy or not and forward request to healthy instances
+    ELB evenly distributes incoming traffic among multiple EC2 instances.
+    number of incoming requests increases, ELB can distribute the load across additional instances.
+    ELB evenly distributes traffic across instances in all available Availability Zones.
+
+Q115. What are the limitations of VPC’s, Gateway and subnets ?
+--> 1 Gateway is attached to only 1 VPC.
+    1subnet is associate with only 1 route table.
+
+Q116 What is a Public IP Address and why do we use it ?
+--> With help of Public IP address instances are connect to internet.
+
+Q117. Explain Bastion Host Concept ?
+--> Whenever We have to access Private subnet instances How we can access it bcz it doesnt have an public IP.
+    At that time we access from Public Subnet instance through SSH. This concept called as Bastion Host.
+
+Q118. When do we need to create a new customised VPC ?
+--> Whenver In Single AWS account there can be multiple projects Keep/working to make secure from other projects then we need customized VPC.
+
+Q119. What is Peering ? Why do we need to peer at two VPC’s ?
+--> Peering means we establish an private connection with Other VPC To share an data through PVT IP.
+    
+Q120. What is VPN, Where do we use VPN Tunnel ?
+--> VPN is an virtual private network 
+    suppose you have server dont have an connectivity to your company data center so how can you access all resources within datacenter
+    For that we create site to site vpn connection between your on premises server and comapny data center
+    VPN TUNNEL is encrypted link & secure tunnel between our server and company VPC (remote) & all data can pass form comapany VPC to our server through Tunnel
 
