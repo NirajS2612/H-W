@@ -1,1 +1,285 @@
+IAM:- 
+POLICY:- 
+
+Q1.Create a policy to access all objects in a specific bucket.
+-----  create policy select service s3
+      -allow for actions list and read permssion.
+      -give bucket arn
+      -create policy and attach to user
+
+Q2.Create a policy to access only 2 objects in a specific bucket.
+-----  create policy select service s3
+      -allow for actions list and read permssion.
+      -give bucket arn also give objects arn.
+      -create policy and attach to user
+
+Q3.Create a policy to deny the access of Specific bucket.
+-create resource based policy for bucket in json deny for all actions 
+  {
+  "Id": "Policy1702550019834",
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "Stmt1702550010493",
+      "Action": "s3:*",
+      "Effect": "Deny",
+      "Resource": "arn:aws:s3:::dhanubuck2",
+      "Principal": {
+        "AWS": [
+          "arn:aws:iam::689385686280:user/dhanu"
+        ]
+      }
+    }
+  ]
+}
+Why we create resource based policy?
+-When we create policy allow access for s3 buckets but if we want to deny access of specific bucket 
+ for specific user for that create resource based policy for bucket.
+
+Q4.Create policy to create the user only and can attach policy to them.
+----- create policy and select service iam 
+      list -list users
+      read -GetAccountPasswordPolicy
+      write - create user
+
+Q5.Create a policy to place the user in a group only.
+----- create policy for user to add another user in group
+      allow for action and select actions
+      read= list user, list group, list group for user
+      read= get group
+      write= add user
+
+Q6. Policy to get "read" access of all users, groups but not policy.
+----  create policy select service iam
+     create policy to a read all users and group but but not policy
+     create policy and allow for actions :- 
+     list - list users, list groups.
+
+Q7. Policy to get access to billing, ec2 and cloudwatch.
+---- we cannot able to give access of billing bcoz only user can acess billing
+     give permission of ec2 and cloudwatch for user.
+
+Q8. How to give access only to northern virginia
+
+Q9. Create a policy like when users are login into console, Without MFA not a single IAM user has able to access any AWS kind of aws services, he gots an permission denied error.
+
+
+Q.10 Create a resource based policy and attach to S3_B16 Bucket & only sunny user can able to access that bucket.
+-give s3 read permission to sunny user.
+-and create resource based policy allow all action for s3_b16 bucket
+-{
+    "Version": "2012-10-17",
+    "Id": "Policy1702550974810",
+    "Statement": [
+        {
+            "Sid": "Stmt1702550972941",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::689385686280:user/dhanu"
+            },
+            "Action": "s3:*",
+            "Resource": "arn:aws:s3:::S3_B16"
+        }
+    ]
+}
+
+USERS:-
+
+Q1. Add four different users in the organisation account.
+---- add 4 users 
+
+Q2. Add one user without permission.
+---- add 1 user and don't give any permission.
+
+Q3. Add user with console & programmatic user.
+---- add user give console access
+     for programmatic user generate access keys.
+     put access keys to cloud shell.
+
+Q4. If IAM users are created w/o password, then how can you set the password of that IAM user as an Admin.
+---- ceate user without give console access
+     after root user give console access from root user account enable console access and set auto generated pass
+     tick on when user login create pass.
+
+Q5. Add User Without Any permission (permission denied)
+---- add 1 user and don't give any permission.
+
+Q6. S3 Read Only Access
+---- create policy for s3 allow for actions 
+     list : list buck
+     read : read obj.
+
+Q7. Jarvis Admin Access
+---- create user jarvis
+     attach permission administration access
+
+Q8. Add User with Programmatic Access
+---- add user
+     generate access keys
+     put in cloud shell .
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+S3:- 
+Q1. Implement MFA on Bucket when users are going to delete any objects, then he needs an Approval from MFA Code.
+-->
+
+Q2. Create a Bucket with cli commands & upload the object from cli mode.
+-->   Give proper Permission for S3 to user.  
+      Login to CLI mode with help of access keys
+      aws s3 ls      ----- list of buckets
+      aws s3 mb s3://krushnabuck1    ------ create new bucket
+      aws s3 cp krushna.txt s3://krushnabuck1          ----file form local uploaded to S3 buck
+  
+
+Q3. Complete one project with server less static website hosting, with deployment & after deployment management of the website in backend side. 
+Make a proper document of that project.
+--> Create/download HTML, CSS, javascript.
+    All webdata uploaded to S3buckets
+    Make bucket public for that unblock public access or make object public for that enabled ACL.
+    Enable Static Website hosting for that bucket And mention Index.html page after we get Endpoint
+    USing endpoint we access our Website
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+CLOUDTRAIL:- 
+Q1. Configure and enable the trail for multi region in your both staging and production account.
+--> create trail whenever you create trail it automatically created for multiregions
+    create trail for separately both accounts.
+  
+Q2. Configure and enable the trail for the only hyderabad region in your both staging and production account.
+--> 
+
+Q3. Create a trail for one service S3 by default it enables all logging features, you guys disable some features of logging.
+--> go to s3 console and 
+    create trail mention bucket where you want to store logs
+    select events and create
+    after go to select cloudtrail and manually edit some feature og logging like unselect event (management event)
+    
+  
+AWS SNS:-
+Q1. Configure SNS with s3 static website.
+--> create sns topic and subscribe it mention protocol where you want receiver notification like gmail,sms & give endpoint(mail).
+    after you have to create cloudtrail for S3 and enable sns for SNS Mention sns topic
+    whenever anyone access website you get notification
+  
+Q2. Configure SNS with Email server level notification with Load Balancer configuration .
+--> create topic in sns and subscribe topic and add protocol (email)
+    edit load balancer attributes and enable for access logs mention s3 bucket where you want to save logs
+    enable SNS for s3 bucket and mention sns topic.
+    after Make changes to your load balancer configuration you get notification on your sns topic
+  
+Q3. Configure the SNS with SMS level.
+--> creat topic
+    subscribe topic and add protocol sms and give number.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+VPC:- 
+Q1.Create a 5 VPC with different networks.
+--> create 5 vpc route table is also created 
+    create 5 IG
+    create subnets within vpc's
+    associate subnets with route tables and 
+    Add IG in route tables
+
+Q2. Create a customised VPC and enable the DHCP & DNS option set.
+--> 
+
+Q3. Enable the flow logs of newly created custom VPC.
+--> enable flow logs mention s3 bucket where you want store logs.
+
+Q4. create a Network Load Balancer (Need proper flow diagram, with explanation)
+--> create TG select port tcp / add instance
+    create nlb 
+    select VPC 
+    add TG in listeners
+    create
+
+Q5.Create a 3 VPC & do the peering between 3 VPC.
+--> create 3 vpc
+    create transit gateway  --> cretae
+    create 3 transit gateway attachments --> create --> add transit gateway --> select vpc 
+    do same for all remaining for 2 vpc
+    Configured the all vpc route table and add route entries SUBNET of vpc’s/az in destinations and target to Transit gatway.
+    
+Q6. Access the all S3 Buckets in Particular single customised VPC w/o internet, so how can we achieve it ?
+--> create vpc and subnet 
+    associate subnet to route table and add IG
+    create role --> attach to instance in vpc
+    create endpoint --> add service S3 --> add vpc --> select route table
+    coonect instance through ssh and install awscli.
+    after you access s3 buckets using aws commands 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+EC2:- 
+Q1. Create an Application Load Balancer with mobile, laptop, tablet, clothes, shoes pages?
+--> step 1 = launch 1 instance for default webpage host website ------------ 
+                          install httpd service start and enabled host default webpage
+                          echo "localhost" > /var/www/html/index.html --------- access through ip
+    step 2 = Create 5 instances and Host microservices/webpages(mobile, tablet, clothes, shoes) to 5 all instances. 
+                          instance 1 for mobile host webpage 
+                               create directory /var/www/html/mobile
+                               echo "mobile" > /var/www/html/mobile/index.html --------- access through <ip>/mobile
+    step 3= same for all 4 webpages/microservices
+    step 5=  Create 6 target group for each instances 
+             choose target types instances enable for port HTTP
+             Give path of webpage for default give /shirt/ to for health check
+    step 6= create 1 alb in listerners add Target group of default  --------  check webspage accessible or not with help of ALB DNS
+    step 7= go to listeners rule --> manage rule --> add rule --> give rule name --> add condtion choose path --> give webpage/mivroservice path (/shirt/)
+                          --> add action select TG --> GIVE PROROTY VALUE --> create                           
+            add rule for remaining 4 microservices                             -----------   access through <dhsn of alb>/mobile
+
+
+Q2. Create a Simple Application Load Balancer with Auto scaling and host any free css template.
+--> Create Template and using User data host any webpage 
+    create ASG mention template 
+    attach ALB
+    define desired/max/min capacity
+    choose target tracking policy(dynamic policy) Give target value for cpu utilization
+    
+
+Q3. Create a simple classic Load Balancer.
+--> create CLB
+    add instance
+    copy dns 
+
+Q4. Create an AMI Image, with name(tomcat-ami-v1) from an existing running tomcat server.
+--> select existinng tomcat instance go to action --> image & templates --> create image
+    give AMI IMAGE NAME = tomcat-ami-v1
+    create 
+
+Q5. Host any customised HTML web page in Ubuntu server.
+--> launch instance ubuntu
+    install webserver ------ apt-get install nginx -y
+    start and enable service
+    echo "localhost" > /var/www/html/index.nginx-debian.html
+    access through IP.
+
+Q6. Host any customised HTML web page in RedHat 9 server.
+--> launch instance rhel 9
+    install webserver ------ yum install httpd -y
+    start and enable service
+    echo "localhost" > /var/www/html/index.html
+
+Q7. Host any customised HTML web page in windows 11 server.
+--> 
+
+Q8. Create a one EC2 Instance with debian family, create an 1000 no of jarvis.txt files and mount the existing S3 bucket into the same server and do upload all the jarvis.txt files into s3 bucket using aws command line tool.
+--> launch ubuntu 
+    create role --> use case EC2 --> add permission for S3 --> create
+    attach role to instance
+    access instance through SSH and install awscli
+    aws s3 ls
+    create files ------   touch jarvis.txt{1..100}
+    copy file to S3 bucket 
+
+Q9. Do task number 1 in AWS EC2 in scripting. Automate the whole server level configuration.
+--> 
+
+
+Q10. If your server lost the key-pair, and you wanna take a ssh of that server, then how can you recover the key and take a ssh. (Want the practical, with documentation)
+--> stop instance which lost pair / detach volume
+    attch to another instance which in same AZ
+    mount on any dir ------------------------------------- mount /dev/xvdf1 /mnt/dp --- cant mounted show problem for xfs
+                                                           mount -t xfs /dev/xvdf1 /mnt/dp
+    copy keys                                              cp .ssh/public-key.pub /mnt/dp/home/ec2-user/.ssh/authorized_keys
+    umount
+    detach 
+    attach to instanmce which lost key pair
+    
+    
 
